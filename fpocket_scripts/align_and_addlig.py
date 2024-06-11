@@ -1,3 +1,9 @@
+"""
+Created on Mon Jun 12 17:07:33 2023
+
+@author: masha.lzs
+"""
+
 import os
 import pymol
 from pymol import cmd
