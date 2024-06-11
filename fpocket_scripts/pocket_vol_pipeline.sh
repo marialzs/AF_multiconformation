@@ -1,5 +1,11 @@
 #!/bin/bash
 
+"""
+Created on Mon Jun 12 17:07:33 2023
+
+@author: masha.lzs
+"""
+
 ref_pdb="$1"
 ref_lig="$2"
 struct_dir="$3"
