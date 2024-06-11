@@ -2,7 +2,7 @@
 """
 Created on Mon Jun 12 17:07:33 2023
 
-@author: mlzs
+@author: masha.lzs
 """
 
 from pymol import cmd
