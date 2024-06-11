@@ -1,0 +1,9 @@
+Structure
+2PIO.A
+2YHD.A
+2PIU.A
+2PIP.L
+2PIW.A
+2YLP.A
+7ZU1.A
+
