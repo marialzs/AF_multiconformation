@@ -1,0 +1,33 @@
+This folder includes all the information needed to reproduce the eperiments in the paper
+
+There are 6 folders with data:
+1) af_msas: msas we used to generate the ensembles
+2) bound_pdbs: text files for each protein system with all PDBs in the set that had a ligand bound at the site of interest
+3) ftmove_results: csv and .pse files with hot-spot clusters and their scores for each binding site found in PDB ensembles of each system
+4) clustered_ftmove_results: csv and .pse files with hot-spot clusters and their scores for each binding site found in clustered AF results of each system
+5) global_rmsds: .txt files with global RMSD results of AF ensembles aligned to a referenece pdb for each system, default AF data has no 'shallow' in the name
+6) plddts: .txt files with pLDDT  results of AF ensembles for each system, default AF data has no 'shallow' in the name
+
+
+And 3 folders with scripts:
+1) clustering: scripts to cluster AF structures
+               - run rmsd_matrix.py to get the pairwise rmsd matrix
+               - run cluster_by_rmsd.py to cluster the structures; USAGE: python cluster_by_rmsd.py -f rmsd_matrix.txt -r radius -t reps 
+
+2) fpocket_scripts: scripts for pocket volume calculation with Fpocket
+               - you need a reference pdb structure, reference ligand (which binds at the pocket of interest) and a directory with structures
+               - USAGE: bash pocket_vol_pipeline.sh ref_pdb ref_lig struct_dir
+
+3) rmsd_scripts: scripts to calculate local RMSDs
+               - there are two loop* and two chain* scripts
+               - loop* scripts calculate a loop RMSD
+               - chain* scripts calculate side chain RMSD
+               - two of the scripts have *pdbs at the end, meaning those were used for local RMSD calculation for structures from PDB. The other two were used for AF structures
+               - PDB USAGE: python loop_rmsd.py dir_w_pdbs/ start_res stop_res closed_ref open_ref ftmove_scores_path site_number bound_info_txt
+                            python chain_rmsd.py dir_w_pdbs/ resnum,resnum,resnum  closed_ref open_ref ftmove_scores_path site_number bound_info_txt
+               - AF USAGE: python loop_rmsd.py dir_w_pdbs/ start_res stop_res closed_ref open_ref ftmove_scores_path site_number 
+       	       	       	   python chain_rmsd.py dir_w_pdbs/ resnum,resnum,resnum  closed_ref open_ref ftmove_scores_path site_number 
+
+
+There is one .txt file called clusterinfo.txt, it contains radii used for clustering for each system
+
